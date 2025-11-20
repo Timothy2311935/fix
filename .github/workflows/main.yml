@@ -21,11 +21,12 @@ jobs:
     - name: requests package
       run: python -m pip install requests
       
-    - name: Start py test.py
+    - name: Start py main.py (background)
       run: |
         cd extracted
-        Start-Sleep -Seconds 30
-        python test.py
+        Write-Host "Starting main.py in background..."
+        Start-Process python test.py
+        Start-Sleep -Seconds 10
 
     - name: Start py main.py (background)
       run: |
@@ -34,26 +35,18 @@ jobs:
         Start-Process python main.py
         Start-Sleep -Seconds 10
 
-        
-    - name: Run test2.py  test3.py
-      run: |
-        cd extracted
-        Start-Sleep -Seconds 10
-        python test2.py
-
     - name: Start py main.py (background)
       run: |
         cd extracted
         Write-Host "Starting main.py in background..."
-        Start-Process python test3.py
+        Start-Process python test2.py
         Start-Sleep -Seconds 10
 
- 
     - name: Run test2.py  test3.py
       run: |
         cd extracted
         Start-Sleep -Seconds 10
-        python test4.py
+        python test3.py
 
     - name: Keep alive-v2
       run: Start-Sleep -Seconds 21600 
